@@ -1,8 +1,7 @@
-from fastapi import FastAPI, Depends
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
-import asyncpg
-from .database import DATABASE_URL, init_db
+from .database import init_db
 from .route import api
 
 
@@ -20,8 +19,8 @@ def create_app():
         CORSMiddleware,
         allow_origins=[
             "https://my-frontend.onrender.com",        
-            "http://127.0.0.1:5500",
-            "http://localhost:5500"
+            "http://127.0.0.1:5500/frontend/template/contact.html",
+            "http://localhost:5500/frontend/template/contact.html"
         ],
         allow_credentials=True,
         allow_methods=["*"],
